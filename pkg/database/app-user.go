@@ -7,13 +7,13 @@ import (
 )
 
 type ApplicationUser struct {
-	ID        				uint       `gorm:"primarykey" json:"id"`
-	CreatedAt 				time.Time  `json:"createdAt"`
-	UpdatedAt 				time.Time  `json:"updatedAt"`
-	Username  				string     `json:"username"`
-	Password  				string     `json:"password"`
-	CompanyName      		string     `json:"companyName"`
-	Email     				string     `json:"email"`
+	ID          uint      `gorm:"primarykey" json:"id"`
+	CreatedAt   time.Time `json:"createdAt"`
+	UpdatedAt   time.Time `json:"updatedAt"`
+	Username    string    `json:"username"`
+	Password    string    `json:"password"`
+	CompanyName string    `json:"companyName"`
+	Email       string    `json:"email"`
 }
 
 func CreateDefaultUser() {
@@ -27,10 +27,10 @@ func CreateDefaultUser() {
 
 	if appUser.ID == 0 {
 		appUser = ApplicationUser{
-			Username: 			_const.Username,
-			Password: 			_const.Password,
-			CompanyName:     	_const.CompanyName,
-			Email:    			_const.Email,
+			Username:    _const.Username,
+			Password:    _const.Password,
+			CompanyName: _const.CompanyName,
+			Email:       _const.Email,
 		}
 
 		err := SaveUser(&appUser)
@@ -62,4 +62,8 @@ func GetUserById(appUser *ApplicationUser, id uint64) (err error) {
 
 func GetAllAppUsers(appUsers *[]ApplicationUser) {
 	DB.Find(appUsers)
+}
+
+func DeleteUserById(id uint64) {
+	DB.Delete(&ApplicationUser{}, id)
 }
