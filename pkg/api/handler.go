@@ -12,4 +12,6 @@ func RegisterHandlers(g *gin.RouterGroup) {
 	g.POST("/app-user/", mw.Auth(), SaveUser)
 	g.GET("/app-user/by-id/:id", mw.Auth(), FindUserById)
 	g.DELETE("/app-user/:id", mw.Auth(), DeleteUser)
+
+	g.POST("/file/upload", mw.Auth(), UploadFile)
 }

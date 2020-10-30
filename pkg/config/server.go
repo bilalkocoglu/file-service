@@ -17,6 +17,7 @@ func NewServer(cfg *Config) (*Server, error) {
 func PrepareServer(config *Config) *gin.Engine {
 	router := gin.Default()
 	router.Use(mw.CORSMiddleware())
+	router.MaxMultipartMemory = 100 << 20 // 100MiB
 
 	g := router.Group("/v1")
 

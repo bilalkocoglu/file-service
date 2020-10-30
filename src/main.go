@@ -15,12 +15,12 @@ func main() {
 		log.Fatal().Err(err).Msg("Load config failed")
 	}
 
-	e := config.PrepareServer(cfg)
+	router := config.PrepareServer(cfg)
 	database.DB, err = gorm.Open(mysql.Open(database.DbURL(database.BuildDBConfig())), &gorm.Config{})
 	database.Migration()
 	minio.StartMinioConnection(minio.BuildMinioConfig())
 
 	log.Info().Str("addr", cfg.Addr).Msg("starting http listener")
-	err = e.Run(cfg.Addr)
+	err = router.Run(cfg.Addr)
 	log.Fatal().Err(err).Msg("Server failed")
 }
