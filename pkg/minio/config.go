@@ -1,24 +1,24 @@
 package minio
 
 import (
+	_const "github.com/bilalkocoglu/file-service/pkg/const"
 	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/credentials"
 	"github.com/rs/zerolog/log"
+	"os"
 )
 
 var Client *minio.Client
 
 type MinioConfig struct {
-	Host           string
-	Port           string
+	URL            string
 	AccessKey      string
 	SecretKey      string
 	MainBucketName string
 }
 
 func StartMinioConnection(cfg *MinioConfig) {
-	endPoint := cfg.Host + ":" + cfg.Port
-	client, err := minio.New(endPoint, &minio.Options{
+	client, err := minio.New(cfg.URL, &minio.Options{
 		Creds: credentials.NewStaticV4(cfg.AccessKey, cfg.SecretKey, ""),
 	})
 	if err != nil {
@@ -38,11 +38,30 @@ func StartMinioConnection(cfg *MinioConfig) {
 
 func BuildMinioConfig() *MinioConfig {
 	config := MinioConfig{
-		Host:           "localhost",
-		Port:           "9000",
-		AccessKey:      "AKIAIOSFODNN7EXAMPLE",
-		SecretKey:      "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
-		MainBucketName: "file-service",
+		URL:            _const.DefaultMinioUrl,
+		AccessKey:      _const.DefaultMinioAccessKey,
+		SecretKey:      _const.DefaultMinioSecretKey,
+		MainBucketName: _const.DefaultMainBucketName,
+	}
+
+	minioUrl := os.Getenv("MINIO_URL")
+	if minioUrl != "" {
+		config.URL = minioUrl
+	}
+
+	accessKey := os.Getenv("MINIO_ACCESS_KEY")
+	if accessKey != "" {
+		config.AccessKey = accessKey
+	}
+
+	secretKey := os.Getenv("MINIO_SECRET_KEY")
+	if secretKey != "" {
+		config.SecretKey = secretKey
+	}
+
+	mainBucketName := os.Getenv("MAIN_BUCKET_NAME")
+	if mainBucketName != "" {
+		config.MainBucketName = mainBucketName
 	}
 
 	return &config
