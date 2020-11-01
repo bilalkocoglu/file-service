@@ -3,6 +3,7 @@ package minio
 import (
 	"context"
 	"github.com/minio/minio-go/v7"
+	"io"
 )
 
 func ExistBucket(bucketName string) bool {
@@ -17,4 +18,9 @@ func ExistBucket(bucketName string) bool {
 func CreateBucket(bucketName string) error {
 	ctx := context.Background()
 	return Client.MakeBucket(ctx, bucketName, minio.MakeBucketOptions{})
+}
+
+func UploadFile(bucketName string, fileName string, file io.Reader) (minio.UploadInfo, error) {
+	ctx := context.Background()
+	return Client.PutObject(ctx, bucketName, fileName, file, 324, minio.PutObjectOptions{})
 }
