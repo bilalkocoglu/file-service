@@ -1,4 +1,4 @@
-module github.com/bilalkocoglu/file-service
+module github.com/imminoglobulin/file-service
 
 go 1.15
 
