@@ -1,7 +1,7 @@
 package minio
 
 import (
-	_const "github.com/bilalkocoglu/file-service/pkg/const"
+	_const "github.com/imminoglobulin/file-service/pkg/const"
 	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/credentials"
 	"github.com/rs/zerolog/log"

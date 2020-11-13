@@ -1,7 +1,7 @@
 package database
 
 import (
-	_const "github.com/bilalkocoglu/file-service/pkg/const"
+	_const "github.com/imminoglobulin/file-service/pkg/const"
 	"github.com/pkg/errors"
 	"time"
 )

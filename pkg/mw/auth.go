@@ -3,10 +3,10 @@ package mw
 import (
 	"encoding/base64"
 	"fmt"
-	_const "github.com/bilalkocoglu/file-service/pkg/const"
-	"github.com/bilalkocoglu/file-service/pkg/database"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
+	_const "github.com/imminoglobulin/file-service/pkg/const"
+	"github.com/imminoglobulin/file-service/pkg/database"
 	"github.com/rs/zerolog/log"
 	"net/http"
 	"os"

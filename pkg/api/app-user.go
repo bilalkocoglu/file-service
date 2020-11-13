@@ -1,8 +1,8 @@
 package api
 
 import (
-	"github.com/bilalkocoglu/file-service/pkg/database"
 	"github.com/gin-gonic/gin"
+	"github.com/imminoglobulin/file-service/pkg/database"
 	"net/http"
 	"strconv"
 )

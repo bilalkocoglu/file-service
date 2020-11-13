@@ -1,9 +1,9 @@
 package config
 
 import (
-	"github.com/bilalkocoglu/file-service/pkg/api"
-	"github.com/bilalkocoglu/file-service/pkg/mw"
 	"github.com/gin-gonic/gin"
+	"github.com/imminoglobulin/file-service/pkg/api"
+	"github.com/imminoglobulin/file-service/pkg/mw"
 )
 
 type Server struct {

@@ -2,8 +2,8 @@ package api
 
 import (
 	"fmt"
-	"github.com/bilalkocoglu/file-service/pkg/minio"
 	"github.com/gin-gonic/gin"
+	"github.com/imminoglobulin/file-service/pkg/minio"
 	"net/http"
 )
 

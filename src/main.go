@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/bilalkocoglu/file-service/pkg/config"
-	"github.com/bilalkocoglu/file-service/pkg/database"
-	"github.com/bilalkocoglu/file-service/pkg/minio"
+	"github.com/imminoglobulin/file-service/pkg/config"
+	"github.com/imminoglobulin/file-service/pkg/database"
+	"github.com/imminoglobulin/file-service/pkg/minio"
 	"github.com/rs/zerolog/log"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

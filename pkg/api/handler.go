@@ -1,8 +1,8 @@
 package api
 
 import (
-	"github.com/bilalkocoglu/file-service/pkg/mw"
 	"github.com/gin-gonic/gin"
+	"github.com/imminoglobulin/file-service/pkg/mw"
 )
 
 func RegisterHandlers(g *gin.RouterGroup) {

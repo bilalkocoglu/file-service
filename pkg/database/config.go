@@ -2,7 +2,7 @@ package database
 
 import (
 	"fmt"
-	_const "github.com/bilalkocoglu/file-service/pkg/const"
+	_const "github.com/imminoglobulin/file-service/pkg/const"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog/log"
 	"gorm.io/gorm"
