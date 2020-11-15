@@ -20,7 +20,7 @@ func CreateBucket(bucketName string) error {
 	return Client.MakeBucket(ctx, bucketName, minio.MakeBucketOptions{})
 }
 
-func UploadFile(bucketName string, fileName string, file io.Reader) (minio.UploadInfo, error) {
+func UploadFile(bucketName string, fileName string, file io.Reader, size int64) (minio.UploadInfo, error) {
 	ctx := context.Background()
-	return Client.PutObject(ctx, bucketName, fileName, file, 324, minio.PutObjectOptions{})
+	return Client.PutObject(ctx, bucketName, fileName, file, size, minio.PutObjectOptions{})
 }

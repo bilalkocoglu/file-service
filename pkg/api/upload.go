@@ -25,7 +25,7 @@ func UploadFile(ctx *gin.Context) {
 			"error": "File error",
 		})
 	}
-	uploadInfo, err := minio.UploadFile(cfg.MainBucketName, filename, openedFile)
+	uploadInfo, err := minio.UploadFile(cfg.MainBucketName, filename, openedFile, file.Size)
 
 	if err != nil {
 		ctx.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
